@@ -119,17 +119,18 @@
 		<fieldset>
 			<legend>Interests</legend>
 			<div>
-				<input type="checkbox" value="Running"> Running
+				<input type="checkbox"v-model="selectedInterests" value="Running"> Running
 			</div>
 			<div>
-				<input type="checkbox" value="Cycling"> Cycling
+				<input type="checkbox"v-model="selectedInterests" value="Cycling"> Cycling
 			</div>
 			<div>
-				<input type="checkbox" value="Swimming"> Swimming
+				<input type="checkbox"v-model="selectedInterests" value="Swimming"> Swimming
 			</div>
 		</fieldset>
         <input type="submit" value="Subscribe">
-        <p>You Entered {{email}}</p>
+        <!-- <p>You Entered {{email}}</p> -->
+        <p>You selected: {{selectedInterests.join(', ')}}</p>
 	</form>
 </div>
 
@@ -137,7 +138,8 @@
 	var vm = new Vue({
 	   el: '#app',
 	   data: {
-		   email: 'mike@example.com'
+		   email: 'mike@example.com',
+           selectedInterests: []
 	   }
 	});
 </script>
