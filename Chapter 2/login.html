@@ -159,12 +159,14 @@
 
 
                 <script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+                <form>
 
-                <div id="app">
-                    <button v-if="!loggedIn" v-on:click="logIn()">Log in</button>
-                    <button v-else @click="logOut()">Logout</button>
-                    {{msg}}
-                </div>
+                    <div id="app">
+                        <button v-if="!loggedIn" v-on:click="logIn('Mike', $event)">Log in</button>
+                        <button v-else @click.prevent="logOut()">Logout</button>
+                        {{msg}}
+                    </div>
+                </form>
 
                 <script>
                     new Vue({
@@ -174,11 +176,12 @@
                             loggedIn: false
                         },
                         methods: {
-                            logIn: function () {
+                            logIn: function (username, event) {
+                                event.preventDefault();
                                 this.loggedIn = true;
-                                this.msg = 'Welcome!';
+                                this.msg = 'Welcome! ' + username;
                             },
-                            logOut: function() {
+                            logOut: function () {
                                 this.loggedIn = false;
                                 this.msg = 'So Long!';
                             }
