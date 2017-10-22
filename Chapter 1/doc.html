@@ -3,7 +3,12 @@
 
 <div id="app">
     <h1>{{ msg }}</h1>
-    <a v-bind:href="url">Home</a>
+    <a v-bind:href="url + '?myparam=1'">Home</a>
+    <p>
+        <form>
+            Name: <input type="text" v-bind:value="name">
+        </form>
+    </p>
 </div>
 
 <script>
@@ -11,7 +16,8 @@
         el: '#app',
         data: {
             msg: 'Hello from Vue!',
-            url: 'https://www.google.com'
+            url: 'https://www.google.com',
+            name: 'Mike'
         }
     });
 </script>
