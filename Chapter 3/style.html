@@ -3,6 +3,7 @@
 <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
 
 <div id="app">
+    <input v-model='myFontSize'>
     <div :style="{border: 'solid 2px black', 'margin-bottom': '30px', fontSize: myFontSize + 'px'}">
         This is a JS Object literal bound to style attribute.
     </div>
